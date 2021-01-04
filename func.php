@@ -55,3 +55,17 @@ function data($datad)
     mysqli_query($conn, "INSERT INTO barang VALUES('', '$lokasi', '$bobot', '$tanggal', '$jenis')");
     return mysqli_affected_rows($conn);
 }
+
+function edit($datac)
+{
+
+    global $conn;
+
+    $nama = $datac["nama"];
+    $email = $datac["email"];
+    $hp = $datac["hp"];
+    $txt = $datac["txt"];
+
+    mysqli_query($conn, "INSERT INTO fb VALUES('', '$nama', '$email', '$hp', '$txt')");
+    return mysqli_affected_rows($conn);
+}

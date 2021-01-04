@@ -216,6 +216,7 @@ if (isset($_POST["submit"])) {
                         <option value="3">Kerdus/kotak</option>
                         <option value="4">Plastik</option>
                         <option value="5">Kaleng/Logam</option>
+                        <option value="6">Pakaian Bekas</option>
                       </select>
                     </div>
                     <button type="submit" name="submit" class="btn btn-warning btn-block">Submit</button>

@@ -92,6 +92,20 @@
          </div>
          <!-- end header inner --> 
       </header>
+
+      <?php require 'func.php';
+$result = mysqli_query($conn, "SELECT * FROM fb");
+
+if (isset($_POST["submit"])) {
+  if (edit($_POST) > 0) {
+    echo "<script>
+  alert('Terima kasih telah memberi Feedback 😊😊');
+  </script>";
+  } else {
+    echo mysqli_error($conn);
+  }
+}
+?>
       <div class="brand_color">
         <div class="container">
             <div class="row">
@@ -111,22 +125,22 @@
             <div class="row">
                 <div class="col-md-12">
 
-                    <form class="main_form">
+                    <form action="" method="post" class="main_form">
                         <div class="row">
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
-                                <input class="form-control" placeholder="Nama Anda" type="text" name="Your Name">
+                                <input class="form-control" placeholder="Nama Anda" type="text" id="nama" name="nama">
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
-                                <input class="form-control" placeholder="Email Anda" type="text" name="Email">
+                                <input class="form-control" placeholder="Email Anda" type="text" id="email" name="email">
                             </div>
                             <div class=" col-md-12">
-                                <input class="form-control" placeholder="No.Phone Anda" type="text" name="Phone">
+                                <input class="form-control" placeholder="No.Phone Anda" type="number" id="hp" name="hp">
                             </div>
                             <div class="col-md-12">
-                                <textarea class="textarea" placeholder="Message"></textarea>
+                                <input class="textarea" placeholder="Message" type="text" name="txt" id="txt"></input>
                             </div>
                             <div class=" col-md-12">
-                                <button class="send">Send</button>
+                                <button type="submit" name="submit" class="send">Send</button>
                             </div>
                         </div>
                     </form>

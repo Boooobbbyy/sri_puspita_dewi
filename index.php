@@ -39,7 +39,7 @@
                      <div class="limit-box">
                         <nav class="main-menu">
                            <ul class="menu-area-main">
-                              <li class="active"> <a href="index.php">Home</a> </li>
+                              <li class="active"> <a href="home.php">Home</a> </li>
                               <li class="mean-last"> <a href="registration.php">signup</a> </li>
                                
                            </ul>
