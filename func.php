@@ -41,6 +41,16 @@ function registrasi($data)
     return mysqli_affected_rows($conn);
 }
 
+function query($query)
+{
+    global $conn;
+    $result = mysqli_query($conn, $query);
+    $rows = [];
+    while ($row = mysqli_fetch_assoc($result)) {
+        $rows[] = $row;
+    }
+    return $rows;
+}
 
 function data($datad)
 {
@@ -56,7 +66,7 @@ function data($datad)
     return mysqli_affected_rows($conn);
 }
 
-function edit($datac)
+function fb($datac)
 {
 
     global $conn;
@@ -77,3 +87,24 @@ function hapus($id)
     return mysqli_affected_rows($conn);
 }
 
+function ubah($datad)
+{
+
+    global $conn;
+
+    $id = $datad["id"];
+    $lokasi = $datad["lokasi"];
+    $bobot = $datad["bobot"];
+    $tanggal = $datad["tanggal"];
+    $jenis = $datad["jenis"];
+
+    $query = "UPDATE barang SET 
+            lokasi = '$lokasi',
+            bobot = '$bobot',
+            tanggal = '$tanggal',
+            jenis = '$jenis'
+            WHERE id = $id
+            ";
+    mysqli_query($conn, $query);
+    return mysqli_affected_rows($conn);
+}

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 04, 2021 at 04:28 PM
+-- Generation Time: Jan 04, 2021 at 08:53 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -89,11 +89,34 @@ CREATE TABLE `barang` (
 --
 
 INSERT INTO `barang` (`id`, `lokasi`, `bobot`, `tanggal`, `jenis`) VALUES
-(1, 'gefds', 34, '2020-12-31 17:00:00', 3),
+(1, 'ntsh', 45, '2021-01-21 17:00:00', 3),
 (2, 'dsfgs', 32, '2020-12-16 17:00:00', 4),
 (5, 'sfdds', 2, '2020-12-16 17:00:00', 5),
 (6, 'sfd', 7, '2020-12-02 17:00:00', 4),
 (7, 'fs', 4, '2021-01-19 17:00:00', 4);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `fb`
+--
+
+CREATE TABLE `fb` (
+  `id` int(11) NOT NULL,
+  `nama` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `hp` int(128) NOT NULL,
+  `txt` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `fb`
+--
+
+INSERT INTO `fb` (`id`, `nama`, `email`, `hp`, `txt`) VALUES
+(1, 'bobby', 'macvermilion@gmail.com', 3543234, 'ini web empul punya sri'),
+(2, 'megumin', 'macvermilion@gmail.com', 3424, 'ini web empul punya tata'),
+(3, 'megumina', 'macvermilion@gmail.com', 24554235, 'ini web empul punya tata');
 
 -- --------------------------------------------------------
 
@@ -134,6 +157,12 @@ ALTER TABLE `barang`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `fb`
+--
+ALTER TABLE `fb`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `sri`
 --
 ALTER TABLE `sri`
@@ -153,7 +182,13 @@ ALTER TABLE `adm`
 -- AUTO_INCREMENT for table `barang`
 --
 ALTER TABLE `barang`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `fb`
+--
+ALTER TABLE `fb`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `sri`
