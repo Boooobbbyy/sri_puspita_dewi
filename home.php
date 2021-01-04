@@ -1,4 +1,5 @@
 <?php include('templates/head.php') ?>
+
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -79,8 +80,8 @@
                            <ul class="menu-area-main">
                               <li class="active"> <a href="home.php">Home</a> </li>
                               <li> <a href="about.php">About</a> </li>
-                              <li> <a href="tc.php">Trash Collect</a> </li>
-                              <li> <a href="akun.php"> Account</a> </li>
+                              <li> <a href="tc.php">Trash Collect</a> </li> 
+                              <li> <a href="akun.php?id=<?= $result["id"];  ?>"> Account</a> </li>
                               <li> <a href="FB.php">FeedBack</a> </li>
                            </ul>
                         </nav>

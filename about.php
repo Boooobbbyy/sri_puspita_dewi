@@ -1,4 +1,5 @@
 <?php include('templates/head.php') ?>
+
 <!DOCTYPE html>
 <html lang="en">
    <head>

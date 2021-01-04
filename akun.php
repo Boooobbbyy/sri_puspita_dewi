@@ -1,4 +1,20 @@
 <?php include('templates/head.php') ?>
+
+<?php
+require 'func.php';
+
+if (isset($_POST["submit"])) {
+  if (akun($_POST) > 0) {
+    echo "<script>
+    alert('user telah di edit');
+      document.location.href = 'akun.php';
+    </script>";
+  } else {
+    echo mysqli_error($conn);
+  }
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -128,58 +144,46 @@
         <div class="row align-itemes-center h-100 align-middle">
           <div class="col-6 mx-auto">
          <div class="jumbotron">
-         <form class="form-login">
-         <div class="text-center mb-4">
-         <img class="mb-4" src="" alt="" width="90" >
-         <h1 class="h3 mb-3 font-weight-normal"> Account</h1>
-         <p>Account ku!</p>
-        </div>
+                   <form action="" method="post">
+            <div class="form-group">
+              <label for="">First Name</label>
+              <input autocomplete="off" autofocus="on" type="text" name="first_name" id="first_name" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="">Last Name</label>
+              <input autocomplete="off" autofocus="on" type="text" name="last_name" id="last_name" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="">Email</label>
+              <input autocomplete="off" autofocus="on" type="text" name="email" id="email" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="">Password</label>
+              <input autocomplete="off" autofocus="on" type="password" name="password1" id="password1" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="">Retype Password</label>
+              <input autocomplete="off" autofocus="on" type="password" name="password2" id="password2" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="">alamat</label>
+              <input autocomplete="off" autofocus="on" type="text" name="alamat" id="alamat" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="">No.HP</label>
+              <input autocomplete="off" autofocus="on" type="number" name="hp" id="hp" class="form-control">
+            </div>
 
-  <div class="form-label-group">
-    <input type="text" class="form-control" name="First Name" placeholder="" required autofocus>
-    <label></label>
-  </div>
-
-  <div class="form-label-group">
-    <input type="text" class="form-control" name="Last Name" placeholder="" required autofocus>
-    <label></label>
-  </div>
-
-  <div class="form-label-group">
-    <input type="text" class="form-control" id ="email" placeholder="" required autofocus>
-    <label></label>
-  </div>
-
-  <div class="form-label-group">
-    <input type="password" id="password1" name="password1" class="form-control" placeholder="" required>
-    <label></label>
-  </div>
-
-  <div class="form-label-group">
-    <input type="password" id="password2"  name="password2" class="form-control" placeholder="" required>
-    <label></label>
-  </div>
-  
-  <div class="form-label-group">
-    <input type="text" name="Alamat" class="form-control" placeholder="" required>
-    <label></label>
-  </div>
-
-  <div class="form-label-group">
-    <input type="number" name="No.hp" class="form-control" placeholder="" required>
-    <label></label>
-  </div>
-  <div class="form-label-group">
-    <select  class="form-control custom-select " name="Jenis Kelamin" class="form-control" placeholder="" required>
-    <option selected disabled> </option>
+            <div class="form-group">
+              <label for="">Jenis Kelamin</label>
+              <select  class="form-control custom-select " name="gender" id="gender" class="form-control">
+              <option selected disabled> Jenis Kelamin </option>
                         <option value="1">Laki-Laki</option>
                         <option value="2">Perempuan</option>
-    </select>
-    <label></label>
-  </div>
-  <button type="submit" name="submit" class="btn btn-warning btn-block">Submit</button>
-  <button class="btn btn-primary btn-block"><a class="text-light " href="">Log Out</a></button>
-</form>
+             </select>
+            </div>
+            <button type="submit" name="submit" class="btn btn-warning btn-block">Ubah</button>
+          </form>
 </body>
 </div></div></div></div></div>
     <!-- end contact -->

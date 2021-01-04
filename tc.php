@@ -1,4 +1,5 @@
 <?php include('templates/head.php') ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -122,6 +123,7 @@
     if (data($_POST) > 0) {
       echo "<script>
   alert('data baru ditambahkan');
+  document.location.href = 'tc.php';
   </script>";
     } else {
       echo mysqli_error($conn);
@@ -152,10 +154,9 @@
                     <table class="table table-bordered table-striped table-responsive-stack">
                       <thead>
                         <tr>
-                          <th scope="col">No.</th>
                           <th scope="col">pilihan</th>
                           <th scope="col">Alamat</th>
-                          <th scope="col">Jenis Sampahnya</th>
+                          <th scope="col">bobot</th>
                           <th scope="col">Harga/kg </th>
                           <th scope="col">Tanggal</th>
 
@@ -169,7 +170,7 @@
                         <?php $i = 1; ?>
                         <?php foreach ($result as $row) : ?>
                           <tr>
-                            <th scope="row"><?= $i;  ?></th>
+
                             <td>
                               <a href="edit.php?id=<?= $row["id"];  ?>">Edit/</a>
                               <a href="hapus.php?id=<?= $row["id"];  ?>">Hapus</a>

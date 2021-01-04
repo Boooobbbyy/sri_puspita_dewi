@@ -108,3 +108,48 @@ function ubah($datad)
     mysqli_query($conn, $query);
     return mysqli_affected_rows($conn);
 }
+
+
+function akun($data)
+{
+
+    global $conn;
+
+    $firstname = stripslashes($data["first_name"]);
+    $lastname = stripslashes($data["last_name"]);
+    $email = $data["email"];
+    $password1 = mysqli_real_escape_string($conn, $data["password1"]);
+    $password2 = mysqli_real_escape_string($conn, $data["password2"]);
+    $alamat = stripslashes($data["alamat"]);
+    $hp = $data["hp"];
+    $gender = $data["gender"];
+
+    if ($password1 !== $password2) {
+
+        echo "<script>
+        alert('password tidak sesuai');
+        </script>";
+        return false;
+    }
+
+    $password1 = password_hash($password1, PASSWORD_DEFAULT);
+
+    $query =     mysqli_query($conn, "SELECT email,password FROM adm WHERE email = '$email' AND password = '$password1'");
+    $num = mysqli_fetch_array($query);
+
+    if($num > 0){
+
+
+    $quee = "UPDATE adm SET 
+            first_name = '$firstname',
+            last_name = '$lastname',
+            email = '$email',
+            password1 = '$password1',
+            alamat = '$alamat',
+            hp = '$hp',
+            gender = '$gender'
+            WHERE id = $id
+            ";
+    mysqli_query($conn, $quee);
+    return mysqli_affected_rows($conn);
+}}

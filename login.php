@@ -1,3 +1,4 @@
+
 <?php include('templates/header.php') ?>
 <?php include('templates/head.php') ?>
 <?php ob_start(); ?>
@@ -71,6 +72,7 @@ if (isset($_POST["login"])) {
 
       $row = mysqli_fetch_assoc($result);
       if ( password_verify($password1, $row["password"])) {
+
          header("Location: index.php");
         ob_end_flush();
          exit;
