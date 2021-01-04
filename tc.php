@@ -151,11 +151,12 @@ if (isset($_POST["submit"])) {
                       <thead>
                         <tr>
                           <th scope="col">No.</th>
+                          <th scope="col">pilihan</th>
                           <th scope="col">Alamat</th>
                           <th scope="col">Jenis Sampahnya</th>
                           <th scope="col">Harga/kg </th>
                           <th scope="col">Tanggal</th>
-                          <th scope="col">pilihan</th>
+                          
                         </tr>
                       </thead>
                       <tbody>
@@ -164,19 +165,21 @@ if (isset($_POST["submit"])) {
                           <h4>Daftar Riwayat Empul</h4>
                         </center>
                         <?php $i = 1; ?>
-                        <?php while ($row = mysqli_fetch_assoc($result)) : ?>
+                        <?php foreach ($result as $row) : ?>
                           <tr>
                             <th scope="row"><?= $i;  ?></th>
+                              <td>
+                              <a href="#">Edit/</a>
+                              <a href="hapus.php?id=<?= $row["id"];  ?>">Hapus</a>
+                            </td>
                             <td><?= $row["lokasi"];  ?></td>
                             <td><?= $row["bobot"];  ?></td>
                             <td><?= $row["jenis"] * 1000;  ?></td>
                             <td><?= $row["tanggal"];  ?></td>
-                            <td><a href="#">Edit</a>
-                              <p>/</p><a href="#">Hapus</a>
-                            </td>
+
                           </tr>
                           <?php $i++; ?>
-                        <?php endwhile; ?>
+                        <?php endforeach; ?>
                       </tbody>
                     </table>
                   </div>
